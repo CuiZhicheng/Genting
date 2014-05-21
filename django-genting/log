@@ -1,0 +1,10 @@
+User
+
+1. 	When I modified the User model, I found that I could not change the tables of sqlite3 by syncdb.
+	Last I got a method deleting the db directly to achieve my modification.
+
+2. 	Complete Log in 
+	1) create a view of log in.
+		build POST and form to accmulate information for logging in.
+	2) create a template of log in.
+		entities of the form and the action is directed into 'index' again with a cookie.
