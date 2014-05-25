@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.template import RequestContext, loader
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
@@ -7,11 +8,20 @@ from web_genting.models import UserProfile
 # Create your views here.
 def index_view(request):
 	# print 'Get into index'
+=======
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import RequestContext, loader
+
+# Create your views here.
+def index(request):
+>>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8
 	latest_index = True
 	template = loader.get_template('web_genting/index.html')
 	context = RequestContext(request, {
 		'latest_index': latest_index,
 	})
+<<<<<<< HEAD
 	#print request.user
 	return HttpResponse(template.render(context))
 
@@ -23,7 +33,7 @@ def signup_view(request):
 		try:
 			u = UserProfile(email=request.POST['email'], date_of_birth=request.POST['date_of_birth'], password=request.POST['password'])
 			u.save()
-		except e:
+		except KeyError:
 			data['message'] = str(e)
 		else:
 			return HttpResponseRedirect(reverse('web_genting:login'))
@@ -62,3 +72,6 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('web_genting:index'))	
+=======
+	return HttpResponse(template.render(context))
+>>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8

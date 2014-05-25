@@ -1,6 +1,7 @@
 from django.db import models
 import django
 
+<<<<<<< HEAD
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 class GentingUserManager(BaseUserManager):
@@ -54,6 +55,18 @@ class UserProfile(AbstractBaseUser):
 
 class Picture(models.Model):
 	user = models.ForeignKey(UserProfile)
+=======
+class UserProfile(models.Model):
+	# Foreign Key to User
+	user = models.ForeignKey(django.contrib.auth.models.User)
+
+	# User Information
+	score = models.FloatField(default=0)
+
+
+class Picture(models.Model):
+	user = models.ForeignKey(django.contrib.auth.models.User)
+>>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8
 
 	img = models.ImageField(upload_to='img/')
 	pub_date = models.DateTimeField('date published')

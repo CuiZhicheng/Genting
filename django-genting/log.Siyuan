@@ -1,0 +1,8 @@
+static files
+1. create a directory in our app 'web_genting'
+2. put static files directories consisting of 'css', 'js', 'images' into the directory created in step 2
+3. modify the project's setting where the STATIC_URL should be '/static/'
+4. validate the static files
+    4.1 write view with RequestContext
+    4.2 put some python-like script into *.html
+        e.g. in index.htm, {% load staticfiles %}, and we can transfer arguments into the templates files

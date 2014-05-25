@@ -202,7 +202,7 @@
 													delay:		25,
 													range:		0.5,
 													anchor:		'center',
-													init:		function(t) { t.addClass('inactive');},
+													init:		function(t) { t.addClass('inactive'); },
 													on:			function(t) { t.removeClass('inactive'); },
 													off:		function(t) { t.addClass('inactive'); }
 												});

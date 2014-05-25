@@ -23,7 +23,7 @@
 
 	body,input,textarea,select {
 		font-family: 'Source Sans Pro', sans-serif;
-		font-weight: normal;
+		font-weight: 300;
 		font-size: 18pt;
 		line-height: 1.75em;
 		color: #39454b;
@@ -31,7 +31,7 @@
 	}
 
 	h1,h2,h3,h4,h5,h6 {
-		font-weight: normal;
+		font-weight: 900;
 		color: inherit;
 	}
 	
@@ -47,7 +47,7 @@
 	}
 		
 	strong, b {
-		font-weight: normal;
+		font-weight: 900;
 		color: inherit;
 	}
 	
@@ -89,7 +89,7 @@
 	}
 	
 	p, ul, ol, dl, table {
-		margin-bottom: 0em;
+		margin-bottom: 1em;
 	}
 
 	header {
@@ -169,11 +169,6 @@
 				display: block;
 				width: 100%;
 			}
-
-			image.myfull{
-				float:left;
-				width: 100%;
-			}
 			
 			.image.left {
 				float: left;
@@ -237,7 +232,6 @@
 			}
 
 		ul.actions {
-			margin-top: 2em;
 			cursor: default;
 		}
 		
@@ -248,7 +242,6 @@
 			
 			ul.actions li:first-child {
 				margin-left: 0;
-				margin-bottom: 0;
 			}
 
 		ol.default {
@@ -263,9 +256,8 @@
 	/* Forms */
 
 		form {
-			text-align:center;
 		}
-			
+		
 			form label {
 				display: block;
 			}
@@ -276,8 +268,7 @@
 			form textarea {
 				display: block;
 				width: 100%;
-				height: 30px;
-				
+				padding: 0.75em;
 				background: none;
 				border: solid 2px rgba(185,186,187,0.25);
 				color: inherit;
@@ -321,23 +312,23 @@
 			}
 
 			form .formerize-placeholder {
-				color: rgba(0,0,0,1) !important;
+				color: rgba(145,146,147,0.85) !important;
 			}
 
 			form ::-webkit-input-placeholder {
-				color: rgba(0,0,0,1) !important;
+				color: rgba(145,146,147,0.85) !important;
 			}
 
 			form :-moz-placeholder {
-				color: rgba(0,0,0,1) !important;
+				color: rgba(145,146,147,0.85) !important;
 			}
 
 			form ::-moz-placeholder {
-				color: rgba(0,0,0,1) !important;
+				color: rgba(145,146,147,0.85) !important;
 			}
 
 			form :-ms-input-placeholder {
-				color: rgba(0,0,0,1) !important;
+				color: rgba(145,146,147,0.85) !important;
 			}
 
 			form ::-moz-focus-inner {
@@ -364,7 +355,7 @@
 				
 				table.default th {
 					text-align: left;
-					font-weight: normal;
+					font-weight: 900;
 					padding: 0.5em 1em 0.5em 1em;
 				}
 			
@@ -386,7 +377,7 @@
 			background-color: #98c593;
 			border: 0;
 			border-radius: 3.5em;
-			color: #000000;
+			color: #fff;
 			cursor: pointer;
 			display: inline-block;
 			height: 3.5em;
@@ -454,81 +445,6 @@
 				}
 				
 				.button.style2.down {
-					background-image: url('images/arrow.svg');
-				}
-
-		.button1 {
-			background-color: #98c593;
-			border: 0;
-			border-radius: 3.5em;
-			color: #000000;
-			cursor: pointer;
-			display: inline-block;
-			height: 1.5em;
-			line-height: 3.5em;
-			outline: 0;
-			padding: 0 2.8em 0 2.8em;
-			position: relative;
-			text-align: left;
-			text-decoration: none;
-
-			-moz-appearance: none;
-			-webkit-appearance: none;
-			-o-appearance: none;
-			-ms-appearance: none;
-			appearance: none;
-
-			-moz-transition: all 0.2s ease-in-out;
-			-webkit-transition: all 0.2s ease-in-out;
-			-o-transition: all 0.2s ease-in-out;
-			-ms-transition: all 0.2s ease-in-out;
-			transition: all 0.2s ease-in-out;
-		}
-
-			.button1.down {
-				width: 5em;
-				height: 5em;
-				line-height: 4.5em;
-				padding: 0;
-				background-image: url('images/dark-arrow.svg');
-				background-position: center center;
-				background-repeat: no-repeat;
-				text-indent: -10em;
-				overflow: hidden;
-			}
-			
-				.button1.down.anchored {
-					bottom: 0;
-					border-bottom: 0;
-					border-radius: 3em 3em 0 0;
-					height: 4.5em;
-					margin-left: -2.5em;
-				}
-			
-			.button1.anchored {
-				position: absolute;
-				left: 50%;
-			}
-			
-			.button1:hover {
-				background-color: #a8d5a3;
-			}
-			
-			.button1:active {
-				background-color: #88b583;
-			}
-
-			.button1.style2 {
-				background-color: transparent;
-				border: solid 2px #e5e6e7;
-				color: inherit;
-			}
-
-				.button1.style2:hover {
-					background-color: rgba(145,146,147,0.035);
-				}
-				
-				.button1.style2.down {
 					background-image: url('images/arrow.svg');
 				}
 
@@ -645,7 +561,7 @@
 				}
 
 					.main.style3 .content > header {
-						margin-bottom: 0em;
+						margin-bottom: 2em;
 					}
 
 				.main.style3.primary {
@@ -655,7 +571,6 @@
 				.main.style3.secondary {
 					background: #f5f6f7;
 				}
-
 
 	/* Dark */
 
@@ -1122,7 +1037,7 @@
 	}
 	
 	body {
-		padding-top: 1em;
+		padding-top: 3em;
 	}
 
 	#logo {
@@ -1250,20 +1165,11 @@
 
 	#contact {
 		padding-bottom: 0;
-		padding-top: 2.5em;
 		overflow: hidden;
-		background: url('../images/one.jpg');
-		background-size: cover;
-		background-attachment: fixed;
-		background-position: left;
 	}
 	
 		#contact .box {
 			position: relative;
-			background:  url('../images/one.jpg');
-			background-size: cover;
-			background-attachment: fixed;		
-			
 			bottom: 0;
 			
 			-moz-transition: all 1s ease;
