@@ -1,15 +1,19 @@
 <html>
 <head>
 	<head>
-		<title>Sign up</title>
+		<title>Upload</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<!--test-->  
+		<meta name=author content="Laruence(www.laruence.com)"> 
+		<!--test-->
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
 		<script src="{{ STATIC_URL }}js/jquery.poptrox.min.js"></script>
 		<script src="{{ STATIC_URL }}js/skel.min.js"></script>
 		<script src="{{ STATIC_URL }}js/init.js"></script>
+		<script src="{{ STATIC_URL }}js/show.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/skel-noscript.css" />
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
@@ -26,23 +30,20 @@
 		<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="index">Home</a></li>
-					<li><a href="login">Log In</a></li>
-					<!--<li><a href="signup">注册</a></li>-->
+					<!--<li><a href="login">登陆</a></li>-->
+					<li><a href="">Home</a></li>
+					
 				</ul>
 			</nav>
 
 	</header>
-{% if message %}
-	<p>{{ message }}</p>
-{% endif %}
 
-	<section id="contact" class="main style3 secondary">
-		<div class="content container">
+	<section id="one" class="main style3 secondary">
+		<div class="content container" >
 			<header>
 				<h2 style = "text-align:center">Welcome to Genting!</h2>
 			</header>
-			<div class="box container big" style="margin-left:0">
+			<div class="box container small" style = "text-align:center">
 
 				<!--
 					 Contact Form
@@ -51,24 +52,26 @@
 					 point the "action" attribute to it (eg. action="http://mydomain.tld/mail.php").
 					 More on how it all works here: http://www.1stwebdesigner.com/tutorials/custom-php-contact-forms/
 				-->
-						<form action="{% url 'web_genting:signup' %}" method="POST">
+
+
+						<form action="{% url 'web_genting:upload' %}" method="POST" enctype="multipart/form-data" >
 							{% csrf_token %}
-							<div class="row half" >
-								<div class="-0u">
-									<label for="username-input" style="color:#000">Username</label>
-									<input type="text" name="username" placeholder="Username" style = "background-color: #ffffff;color:#000000"/>
-
-									<label for="password-input" style="color:#000">Password</label>	
-									<input type="password" name="password" placeholder="Password" style = "background-color: #ffffff;color:#000000" />
-
-									<label for="email-input" style="color:#000">Email</label>
-									<input type ="text" name="email" placeholder="Email"  />
+							<div class="row half" style ="display:table; margin-left:auto; margin-right:auto">
+								<div class="12u">
+									<label for="input-img" style="color:#000">Upload File</label>
+									<br/>
+									<input id="input-img" name="img" type="file" onchange="javascript:setImagePreview();"/>
+									<br/>
+									<p><div id="localImag"><img id="preview" width=-1 height=-1 style="diplay:none" /></div></p>
+									<p><div id="guide_text"></div></p>
+									<label for="input-desc" style="color:#000">Image Description</label>
+									<br/>
+									<input id="input-desc" name="desc" placeholder="Image Description" type="text" style = "background-color: #ffffff;color:#000000"/>
 									<br/>
 									<ul class="actions">
 										<li><input type="submit" class="button" value="Submit" /></li>
 									</ul>
 								</div>
-									<div class="7u"><a href="{{ STATIC_URL }}images/fulls/05.jpg" class="image full l"><img src="{{ STATIC_URL }}images/thumbs/05.jpg" title="The sparkling shell" alt="" /></a></div>
 							</div>
 
 						</form>						
@@ -82,3 +85,11 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+

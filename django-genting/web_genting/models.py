@@ -1,29 +1,32 @@
 from django.db import models
-import django
-
-<<<<<<< HEAD
+from django import forms
+from django.core.validators import RegexValidator, MinLengthValidator, MinValueValidator
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 class GentingUserManager(BaseUserManager):
-	def create_user(self, email, date_of_birth, password):
+	def create_user(self, username, email, password):
 		if not email: raise ValueError('GentingUsers must have a valid email.')
-		if not date_of_birth: raise ValueError('GentingUsers must have a valid date_of_birth.')
+		if not username: raise ValueError('GentingUsers must have a valid username.')
 		if not password: raise ValueError('GentingUsers must have a valid password.')
-		GentingUser = self.model(email=email, date_of_birth = date_of_birth)
+		GentingUser = self.model(username = username, email=email)
 		GentingUser.set_password(password)
 		GentingUser.save(using=self._db)
+		print 'Create User'
 		return GentingUser
 
-	def create_superuser(self, email, date_of_birth, password):
-		GentingUser = self.create_user(email, date_of_birth, password)
+	def create_superuser(self, username, email, password):
+		GentingUser = self.create_user(username, email, password)
 		GentingUser.is_admin = True
 		GentingUser.save(using=self._db)
 		return GentingUser
 
 
 class UserProfile(AbstractBaseUser):
+	USERNAME_MSG = 'Username must consist of digits, letters, underscores and hyphens only, and between 2 to 20 characters.'
+	username = models.CharField(max_length = 20, unique = True, 
+		validators = [RegexValidator(regex = r'[\w\-][\w\-]+', message = USERNAME_MSG)])
+
 	email = models.EmailField(verbose_name='email address', max_length=255, unique=True,)
-	date_of_birth = models.DateField()
 	is_active = models.BooleanField(default=True)
 	is_admin = models.BooleanField(default=False)
 
@@ -31,17 +34,17 @@ class UserProfile(AbstractBaseUser):
 
     # User Information
 	score = models.FloatField(default=0)
-	USERNAME_FIELD = 'email'
-	REQUIRED_FIELDS = ['date_of_birth']
+	USERNAME_FIELD = 'username'
+	REQUIRED_FIELDS = ['email']
 
 	def get_full_name(self):
-		return self.email
+		return self.username
 
 	def get_short_name(self):
-		return self.email
+		return self.username
 
 	def __str__(self): 
-		return self.email
+		return self.username
 
 	def is_staff(self): 
 		return self.is_admin
@@ -53,23 +56,15 @@ class UserProfile(AbstractBaseUser):
 		return True
 	
 
+class UploadForm(forms.Form):
+	desc = forms.CharField(max_length=500)
+	img = forms.ImageField()
+
 class Picture(models.Model):
 	user = models.ForeignKey(UserProfile)
-=======
-class UserProfile(models.Model):
-	# Foreign Key to User
-	user = models.ForeignKey(django.contrib.auth.models.User)
-
-	# User Information
-	score = models.FloatField(default=0)
-
-
-class Picture(models.Model):
-	user = models.ForeignKey(django.contrib.auth.models.User)
->>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8
 
 	img = models.ImageField(upload_to='img/')
-	pub_date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField('date published', auto_now_add=True)
 
 	text = models.CharField(max_length=500)
 	score = models.FloatField(default=0)

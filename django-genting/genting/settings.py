@@ -17,11 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
 SECRET_KEY = 'yqnl%0(@@+$0itip&_^88bzmkno@tmxc7n=*7%bj9^3zllh5q#'
-=======
-SECRET_KEY = 'hcv=$urlm7le0#z2*m87+06s(c=u0)sj%geicr+ii-4^z&w+_z'
->>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,13 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
 
-=======
-    #'django.contrib.sites',
-    #'django.contrib.comments',
-    
->>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8
     'web_genting',
 )
 
@@ -69,18 +59,8 @@ WSGI_APPLICATION = 'genting.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-=======
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'gentingdb',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'root',
-        'PASSWORD': 'Jack4Liu',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
->>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8
     }
 }
 
@@ -102,12 +82,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-
-<<<<<<< HEAD
+MEDIA_ROOT = os.path.join(BASE_DIR, 'img')
+MEDIA_URL = '/img/'
 AUTH_USER_MODEL = 'web_genting.UserProfile'
-=======
-
-MEDIA_ROOT = '/home/tomato/Documents/genting/'
-
-MEDIA_URL = '/'
->>>>>>> f5fb75f4c6f15bba916aae9b29706c8d2dc11ec8
